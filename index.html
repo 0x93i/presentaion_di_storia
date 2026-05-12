@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L'Analisi della Decolonizzazione</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap');
+
+        :root {
+            --gold: #d4af37;
+            --dark-overlay: rgba(10, 15, 25, 0.85);
+            --text-light: #f4f1ea;
+        }
+
+        body, html {
+            margin: 0; padding: 0;
+            font-family: 'Lora', serif;
+            background-color: #0a0f19;
+            color: var(--text-light);
+            overflow: hidden; /* Nasconde la scrollbar per un look pulito */
+        }
+
+        /* Contenitore principale per lo scroll delle slide */
+        .presentation {
+            height: 100vh;
+            overflow-y: scroll;
+            scroll-snap-type: y mandatory;
+            scroll-behavior: smooth;
+        }
+
+        .slide {
+        height: 100vh;
+        width: 100vw;
+        scroll-snap-align: start;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        /* We keep the background of the slide dark so it acts as a frame */
+        background-color: #0a0f19; 
+        }
+
+        .bg-img {
+            position: absolute;
+            /* Create space from the sides, top, and bottom (e.g., 40px gap) */
+            top: 40px; 
+            left: 40px;
+            width: calc(100% - 80px); 
+            height: calc(100% - 80px);
+            
+            /* 'contain' ensures the image is never cropped and keeps its original proportions */
+            object-fit: contain; 
+            
+            z-index: 1;
+            opacity: 1; /* Keep it slightly dim so text is readable */
+            border-radius: 10px; /* Optional: gives the image soft rounded corners */
+            transition: transform 10s ease-out, opacity 10s;
+        }   
+
+    /* Optional tweak: adjust hover effect to be a bit more subtle since the image is contained */
+        .slide:hover .bg-img {
+            transform: scale(1.02);
+            opacity: 0.5;
+        }
+        /*.slide {
+            height: 100%;
+            width: 100%;
+            scroll-snap-align: start;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }*/
+
+        /* Immagini di sfondo prese dai tuoi link */
+        /* .bg-img {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height:100%;
+            object-fit: cover;
+            z-index: 1;
+            opacity: 0.7; /* Scurisce l'immagine per far leggere il testo */
+            /*transition: transform 10s ease-out, opacity 1s;
+        } */
+        
+
+        /*.slide:hover .bg-img {
+            transform: scale(1.05);
+            opacity: 0.6;
+        }/* Aggiungiamo un leggero effetto di zoom e schiarimento al passaggio del mouse per dare un tocco dinamico, ma senza esagerare visto che l'immagine è già contenuta e non copre tutto lo sfondo. */
+
+        /* Box del contenuto testuale */
+        .content {
+            position: relative;
+            z-index: 2;
+            background: rgba(40, 55, 80, 0.75); /* Sfondo chiaro ed elegante */
+            padding: 2rem 3rem; /* Padding ridotto per un look più compatto */
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            border-radius: 12px;
+            
+            /* LA SOLUZIONE: larghezza ridotta e adattabile */
+            max-width: 650px; 
+            width: 75vw; /* Occupa al massimo il 75% della larghezza dello schermo */
+            
+            text-align: center; /* Testo centrato */
+            box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+            backdrop-filter: blur(0px);
+        }
+
+        /* Ridimensioniamo leggermente anche i testi per farli stare perfettamente nel nuovo box */
+        .content h1 { 
+            font-size: 2.8rem; 
+            margin-bottom: 0.5rem; 
+        }
+        .content h2 { 
+            font-size: 2.2rem; 
+            margin-bottom: 0.5rem; 
+        }
+        .content p { 
+            font-size: 1.2rem; 
+            line-height: 1.6; 
+        }
+
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 3.5rem;
+            color: var(--gold);
+            margin: 0 0 1rem 0;
+            line-height: 1.1;
+        }
+
+        h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin: 0 0 1rem 0;
+        }
+
+        p {
+            font-size: 1.4rem;
+            line-height: 1.7;
+            margin: 0;
+            color: #ddd;
+        }
+
+        .slide-number {
+            position: absolute;
+            bottom: 40px;
+            right: 50px;
+            z-index: 2;
+            font-family: 'Cinzel', serif;
+            font-size: 3rem;
+            color: rgba(212, 175, 55, 0.4);
+        }
+
+        .instruction {
+            position: fixed;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.5);
+            letter-spacing: 2px;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="instruction">SCORRI VERSO IL BASSO PER CAMBIARE SLIDE ↓</div>
+
+    <div class="presentation">
+
+        <!-- SLIDE 1 -->
+        <section class="slide">
+            <img class="bg-img" src="1. Introduzione (Decolonizzazione).png" alt="Introduzione">
+            <div class="content">
+                <h1>I Venti del Cambiamento</h1>
+                <p>Decolonizzazione, sovranità e la ridefinizione dei confini nel mondo arabo e africano.</p>
+            </div>
+            <div class="slide-number">01</div>
+        </section>
+
+        <!-- SLIDE 2 -->
+        <section class="slide">
+            <img class="bg-img" src="2. Neocolonialismo  Dipendenza economica.png" alt="Neocolonialismo">
+            <div class="content">
+                <h2>Neocolonialismo</h2>
+                <p>La catena dell'ineguaglianza: esportazione di materie prime a basso costo e importazione di beni finiti, una dipendenza strutturale.</p>
+            </div>
+            <div class="slide-number">02</div>
+        </section>
+
+        <!-- SLIDE 3 -->
+        <section class="slide">
+            <img class="bg-img" src="3. Confini coloniali e conflitti.png" alt="Confini e Conflitti">
+            <div class="content">
+                <h2>Frontiere dell'Imposizione</h2>
+                <p>Linee tracciate a tavolino che hanno diviso popoli omogenei e forzato convivenze storicamente conflittuali, seminando instabilità.</p>
+            </div>
+            <div class="slide-number">03</div>
+        </section>
+
+        <!-- SLIDE 4 -->
+        <section class="slide">
+            <img class="bg-img" src="4. Sviluppo economico difficile.png" alt="Sviluppo Difficile">
+            <div class="content">
+                <h2>L'Eredità Estrattiva</h2>
+                <p>Infrastrutture ferroviarie e portuali costruite non per connettere le popolazioni locali, ma esclusivamente per il drenaggio di risorse verso l'Europa.</p>
+            </div>
+            <div class="slide-number">04</div>
+        </section>
+
+        <!-- SLIDE 5 -->
+        <section class="slide">
+            <img class="bg-img" src="5. Mondo arabo e accordo Sykes-Picot.png" alt="Sykes-Picot">
+            <div class="content">
+                <h2>Il "Peccato Originale" (1916)</h2>
+                <p>L'accordo Sykes-Picot: la spartizione del Medio Oriente che ha sostituito il sistema fluido del Millet con rigidi confini occidentali.</p>
+            </div>
+            <div class="slide-number">05</div>
+        </section>
+
+        <!-- SLIDE 6 -->
+        <section class="slide">
+            <img class="bg-img" src="6. Decolonizzazione culturale.png" alt="Decolonizzazione Culturale">
+            <div class="content">
+                <h2>Spezzare le Catene</h2>
+                <p>Oltre l'indipendenza territoriale: il movimento per liberare l'identità culturale e rifiutare il ruolo di destinatari passivi della storia.</p>
+            </div>
+            <div class="slide-number">06</div>
+        </section>
+
+        <!-- SLIDE 7 -->
+        <section class="slide">
+            <img class="bg-img" src="7. Teorie post-coloniali (Said, Spivak, Fanon).png" alt="Teorie Post-Coloniali">
+            <div class="content">
+                <h2>Decolonizzare la Mente</h2>
+                <p>I centri di ricerca mediorientali (ACRPS, Al Jazeera Center) e la sfida all'Orientalismo per produrre un sapere politico locale.</p>
+            </div>
+            <div class="slide-number">07</div>
+        </section>
+
+        <!-- SLIDE 8 -->
+        <section class="slide">
+            <img class="bg-img" src="8. Restituzione beni culturali.png" alt="Restituzione Beni Culturali">
+            <div class="content">
+                <h2>Giustizia Simbolica</h2>
+                <p>Il rimpatrio del patrimonio storico: un passo fondamentale per ricomporre la frattura tra passato e identità nazionale.</p>
+            </div>
+            <div class="slide-number">08</div>
+        </section>
+
+        <!-- SLIDE 9 -->
+        <section class="slide">
+            <img class="bg-img" src="9. Conclusione.png" alt="Conclusione">
+            <div class="content">
+                <h1>Dalle Barriere ai Ponti</h1>
+                <p>Il futuro risiede nella cooperazione transfrontaliera: superare le divisioni coloniali per un ordine basato su giustizia, libertà e uguaglianza.</p>
+            </div>
+            <div class="slide-number">09</div>
+        </section>
+
+    </div>
+</body>
+</html>
